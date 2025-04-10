@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Items</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .item {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .actions {
+      float: right;
+    }
+    .create-btn {
+      background: #28a745;
+      color: white;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .create-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 Item List</h1>
+  <a href="/create" class="create-btn">➕ Create New Item</a>
+  <br><br>
+  {{range .}}
+    <div class="item">
+      {{.Name}}
+      <span class="actions">
+        <a href="/update?id={{.ID}}">✏️ Edit</a>
+        <a href="/delete?id={{.ID}}">🗑️ Delete</a>
+      </span>
+    </div>
+  {{else}}
+    <p>No items yet.</p>
+  {{end}}
+</body>
+</html>
